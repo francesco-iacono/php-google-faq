@@ -1,5 +1,12 @@
 <?php
 
+$menu = [
+  "Introduzione",
+  "Norme sulla privacy",
+  "Termini di servizio",
+  "Tecnologie",
+  "Domande frequenti"
+];
 $frequentQuestions = [
 
     "Come state implementando la recente decisione della Corte di giustizia dell'Unione europea (CGUE) relativa al diritto all'oblio?" => [
@@ -43,7 +50,7 @@ $frequentQuestions = [
           "In alcuni casi sì. Quando fai clic su un risultato della Ricerca Google, il tuo browser web potrebbe reindirizzare alla pagina web di destinazione anche l'indirizzo Internet, o URL, della pagina dei risultati di ricerca sotto forma di URL referrer. Talvolta, l'URL della pagina dei risultati di ricerca potrebbe contenere la query di ricerca che hai inserito. Se utilizzi la ricerca SSL (la funzione di ricerca criptata di Google), nella maggior parte dei casi i termini di ricerca non vengono inviati come parte dell'URL negli URL referrer. Questo comportamento può fare eccezione, ad esempio se utilizzi alcuni browser meno diffusi. Ulteriori informazioni sulla ricerca SSL sono disponibili qui. Le query di ricerca o le informazioni contenute nell'URL referrer potrebbero essere disponibili mediante Google Analytics o un'API (Application Programming Interface). Inoltre, gli inserzionisti potrebbero ricevere informazioni relative all' esatte parole chiave che hanno determinato il clic su un annuncio."
         ],
       ],
-    ]
+    ];
 
 ?>
 <!DOCTYPE html>
@@ -52,19 +59,50 @@ $frequentQuestions = [
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
     <title>Google</title>
   </head>
   <body>
-  <?php
-    foreach ($frequentQuestions as $key => $value) {
-      echo "<h1>".$key."</h1>";
-      for ($i=0; $i < count($value); $i++) {
-        foreach ($value[$i] as $k => $item) {
-          echo "<p>".$item."</p>";
-        }
-      }
-    }
-  ?>
-
+    <header>
+      <div class="header-top">
+        <div class="logo">
+          <img src="https://lh3.googleusercontent.com/proxy/8FRylPReWcuPcgPii3nXkUOAg5RRyx9I8YI6AaVLJxlp9DCKMgDk8MALApTKXad5OyCgsHeYsdNATqfwLp4n6ieUeSfFc8K3JB-oRLc8YhC9t3ZCYMvHb83SxiZmjvtPKb4DBgMDUkJHHw" alt="">
+        </div>
+        <div class="privacy ">
+          <span><a href="#"> Privacy e termini </a></span>
+        </div>
+      </div>
+      <div class="header-bottom">
+        <ul class="list-inline">
+          <?php
+            for ($i=0; $i < count($menu); $i++) {
+              ?>
+              <li>
+                <a href="#">
+                  <?php echo $menu[$i];?>
+                </a>
+              </li>
+            <?php
+            }
+          ?>
+        </ul>
+      </div>
+    </header>
+    <main>
+      <div class="container">
+        <?php
+          foreach ($frequentQuestions as $key => $value) {
+            echo "<h2>".$key."</h2>";
+            for ($i=0; $i < count($value); $i++) {
+              foreach ($value[$i] as $k => $item) {
+                echo "<p>".$item."</p>";
+              }
+            }
+          }
+        ?>
+      </div>
+    </main>
   </body>
 </html>
